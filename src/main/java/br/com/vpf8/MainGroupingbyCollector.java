@@ -30,7 +30,7 @@ public class MainGroupingbyCollector {
 //        groupingByComClasseTuple();
 
         //Agora é muito simples agrupar o BlotPost na lista por tipo, autor e curtidas usando a instância do registro :
-//        groupingByComRecordAuthPostTypesLikes();
+        groupingByComRecordAuthPostTypesLikes();
 
 
         //2.4. Modificando o tipo de valor do mapa retornado
