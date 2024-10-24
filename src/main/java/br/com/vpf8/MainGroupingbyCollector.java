@@ -27,10 +27,10 @@ public class MainGroupingbyCollector {
 //        groupingByComUmTipoDeChaveDeMapaComplexo();
 
         //Similarmente, podemos usar a classe Tuple definida antes, essa classe pode ser facilmente generalizada para incluir mais campos conforme necessário. O exemplo anterior usando uma instância Tuple será:
-//        groupingByComClasseTuple();
+        groupingByComClasseTuple();
 
         //Agora é muito simples agrupar o BlotPost na lista por tipo, autor e curtidas usando a instância do registro :
-        groupingByComRecordAuthPostTypesLikes();
+//        groupingByComRecordAuthPostTypesLikes();
 
 
         //2.4. Modificando o tipo de valor do mapa retornado

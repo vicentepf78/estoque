@@ -2,6 +2,8 @@ package br.com.vpf78.grouping.collector;
 
 import br.com.vpf8.groupingby.collector.BlogPost;
 import br.com.vpf8.groupingby.collector.BlogPostType;
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.apache.commons.lang3.tuple.Pair;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
@@ -9,6 +11,7 @@ import java.util.concurrent.ConcurrentMap;
 
 import static java.util.Comparator.comparingInt;
 import static java.util.stream.Collectors.*;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class JavaGroupingByCollectorUnitTest {
@@ -180,22 +183,22 @@ public class JavaGroupingByCollectorUnitTest {
         assertEquals(15, newsLikeStatistics.getMin());
     }
 
-//        @Test
-//        void givenAListOfPosts_whenGroupedByComplexMapPairKeyType_thenGetAMapBetweenPairAndList() {
-//
-//            Map<Pair<BlogPostType, String>, List<BlogPost>> postsPerTypeAndAuthor = posts.stream()
-//                    .collect(groupingBy(post -> new ImmutablePair<>(post.getType(), post.getAuthor())));
-//
-//            List<BlogPost> result = postsPerTypeAndAuthor.get(new ImmutablePair<>(BlogPostType.GUIDE, "Author 1"));
-//
-//            assertThat(result.size()).equals(1);
-//
-//            BlogPost blogPost = result.get(0);
-//
-//            assertThat(blogPost.getTitle()).equals("Programming guide");
-//            assertThat(blogPost.getType()).equals(BlogPostType.GUIDE);
-//            assertThat(blogPost.getAuthor()).equals("Author 1");
-//        }
+        @Test
+        void givenAListOfPosts_whenGroupedByComplexMapPairKeyType_thenGetAMapBetweenPairAndList() {
+
+            Map<Pair<BlogPostType, String>, List<BlogPost>> postsPerTypeAndAuthor = posts.stream()
+                    .collect(groupingBy(post -> new ImmutablePair<>(post.getType(), post.getAuthor())));
+
+            List<BlogPost> result = postsPerTypeAndAuthor.get(new ImmutablePair<>(BlogPostType.GUIDE, "Author 1"));
+
+            assertThat(result.size()).isEqualTo(1);
+
+            BlogPost blogPost = result.get(0);
+
+            assertThat(blogPost.getTitle()).isEqualTo("Programming guide");
+            assertThat(blogPost.getType()).isEqualTo(BlogPostType.GUIDE);
+            assertThat(blogPost.getAuthor()).isEqualTo("Author 1");
+        }
 
 
 //        @Test
